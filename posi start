@@ -1,0 +1,7 @@
+var counter = 10
+var posi = []
+for (var counter = 30; counter > 0; counter--) {
+	var randomNumber = Math.floor(Math.random()*300)
+	posi.push(randomNumber)
+}
+console.log(posi)
