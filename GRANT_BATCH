@@ -1,0 +1,15 @@
+:: grants big file of batch stuff
+>> $a = new-object Random
+>> for ( $i = 0 ; $i -lt 10 ; $i++ )
+>> {
+>>  $b = $a.NextInt64(0,1000000000)
+>>  Write-Host "$($b)"
+>>  [IO.File]::WriteAllBytes("$PWD\GRANT_$i.txt", [byte[]]@())
+>>  for ( $c = $b ; $c -gt 0 ; $c-=1000000)
+>>  {
+>>   $d = new-object byte[] $([math]::Min(1000000,$c));
+>>   $a.NextBytes($d);
+>>   [IO.File]::AppendAllBytes("$PWD\GRANT_$i.txt", $d)
+>>  }
+>> }
+>> [GC]::Collect()
