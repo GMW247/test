@@ -1,3 +1,8 @@
 # usefull for deleting a lot of a particular file via regex
 Get-ChildItem -Path $path -Recurse -Filter "*(1)*" -File
 Get-ChildItem -Path $path -Recurse -Filter "*(1)*" -File | foreach { $_.Delete() }
+
+# moving files, (use robocopy next time)
+$source = Get-ChildItem -Path X:\Directory -Recurse
+$destination = "Y:\Directory"
+foreach ($item in $source) { Move-Item -Path $item -Destination $destination }
