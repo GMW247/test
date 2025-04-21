@@ -1,0 +1,3 @@
+# usefull for deleting a lot of a particular file via regex
+Get-ChildItem -Path $path -Recurse -Filter "*(1)*" -File
+Get-ChildItem -Path $path -Recurse -Filter "*(1)*" -File | foreach { $_.Delete() }
